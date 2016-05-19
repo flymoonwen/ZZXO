@@ -1,0 +1,123 @@
+1.查看备份表
+cd /data/mysqldb/mysql/mgame
+ll *20160404*.frm
+
+show tables like '%20160404%';
+-rw-rw----  1 mysql mysql 8778  1月  1 00:00 bbs_user_game_money_log_20160404.frm
+-rw-rw----  1 mysql mysql 8708  1月  1 00:00 bbs_user_gold_game_log_20160404.frm
+-rw-rw----  1 mysql mysql 8876  1月  1 00:00 bbs_user_login_20160404.frm
+-rw-rw----  1 mysql mysql 8798  1月  1 00:00 bbs_user_login_fail_20160404.frm
+-rw-rw----  1 mysql mysql 8746  1月  1 00:00 bbs_user_phone_20160404.frm
+-rw-rw----  1 mysql mysql 8718  1月  1 00:00 bbs_user_sendgamemoney_20160404.frm
+-rw-rw----  1 mysql mysql 8678  1月  1 00:00 bbs_user_sendgold_20160404.frm
+-rw-rw----  1 mysql mysql 8636  1月  1 00:00 bbs_user_sendgold_day_20160404.frm
+-rw-rw----  1 mysql mysql 8692  1月  1 00:00 game_all_online_count_20160404.frm
+-rw-rw----  1 mysql mysql 8774  1月  1 00:00 game_car3d3_award_20160404.frm
+-rw-rw----  1 mysql mysql 8598  1月  1 00:00 game_car3d3_signin_log_20160404.frm
+-rw-rw----  1 mysql mysql 8780  1月  1 00:00 game_down_20160404.frm
+-rw-rw----  1 mysql mysql 8672  1月  1 00:00 game_link_count_20160404.frm
+-rw-rw----  1 mysql mysql 8662  1月  1 00:00 game_link_new3g_20160404.frm
+-rw-rw----  1 mysql mysql 8678  1月  1 00:00 game_menu_click_20160404.frm
+-rw-rw----  1 mysql mysql 8820  1月  1 00:00 game_new_ddz_content_20160404.frm
+-rw-rw----  1 mysql mysql 8710  1月  1 00:00 game_new_motoonline_award_20160404.frm
+-rw-rw----  1 mysql mysql 8814  1月  1 00:00 game_online_count_20160404.frm
+-rw-rw----  1 mysql mysql 8722  1月  1 00:00 game_user_bomb_20160404.frm
+-rw-rw----  1 mysql mysql 8720  1月  1 00:00 game_user_date_stage_20160404.frm
+-rw-rw----  1 mysql mysql 9024  1月  1 00:00 game_user_history_20160404.frm
+-rw-rw----  1 mysql mysql 8772  1月  1 00:00 game_user_stage_20160404.frm
+-rw-rw----  1 mysql mysql 8648  1月  1 00:00 game_user_stage_content_20160404.frm
+-rw-rw----  1 mysql mysql 8762  1月  1 00:00 game_user_vip_stage_20160404.frm
+-rw-rw----  1 mysql mysql 8742  1月  1 00:00 game_zjh_xyc_user_award_20160404.frm
+-rw-rw----  1 mysql mysql 8698  1月  1 00:00 game_zjh_xyc_user_xz_20160404.frm
+-rw-rw----  1 mysql mysql 8566  1月  1 00:00 temp_mm_smspush_20160404.frm
+-rw-rw----  1 mysql mysql 8706  1月  1 00:00 user_dingdan_charge_20160404.frm
+-rw-rw----  1 mysql mysql 9128  1月  1 00:00 user_dingdan_gold_20160404.frm
+-rw-rw----  1 mysql mysql 8630  1月  1 00:00 user_dingdan_imsi_20160404.frm
+-rw-rw----  1 mysql mysql 8790  1月  1 00:00 user_dingdan_mm_20160404.frm
+-rw-rw----  1 mysql mysql 8694  1月  1 00:00 xomoney_20160404.frm
+
+2.备份数据表到205 history库
+mysql -h192.168.0.173 -uroot -p81830975 mgame;
+create table mgame_history.bbs_user_game_money_log_20160404 ENGINE=MyISAM select * from bbs_user_game_money_log_20160404;
+create table mgame_history.bbs_user_gold_game_log_20160404 ENGINE=MyISAM select * from bbs_user_gold_game_log_20160404;
+create table mgame_history.bbs_user_login_20160404 ENGINE=MyISAM select * from bbs_user_login_20160404;
+create table mgame_history.bbs_user_login_fail_20160404 ENGINE=MyISAM select * from bbs_user_login_fail_20160404;
+create table mgame_history.bbs_user_phone_20160404 ENGINE=MyISAM select * from bbs_user_phone_20160404;
+create table mgame_history.bbs_user_sendgamemoney_20160404 ENGINE=MyISAM select * from bbs_user_sendgamemoney_20160404;
+create table mgame_history.bbs_user_sendgold_20160404 ENGINE=MyISAM select * from bbs_user_sendgold_20160404;
+create table mgame_history.bbs_user_sendgold_day_20160404 ENGINE=MyISAM select * from bbs_user_sendgold_day_20160404;
+create table mgame_history.game_all_online_count_20160404 ENGINE=MyISAM select * from game_all_online_count_20160404;
+create table mgame_history.game_car3d3_award_20160404 ENGINE=MyISAM select * from game_car3d3_award_20160404;
+create table mgame_history.game_car3d3_signin_log_20160404 ENGINE=MyISAM select * from game_car3d3_signin_log_20160404;
+create table mgame_history.game_down_20160404 ENGINE=MyISAM select * from game_down_20160404;
+create table mgame_history.game_link_count_20160404 ENGINE=MyISAM select * from game_link_count_20160404;
+create table mgame_history.game_link_new3g_20160404 ENGINE=MyISAM select * from game_link_new3g_20160404;
+create table mgame_history.game_menu_click_20160404 ENGINE=MyISAM select * from game_menu_click_20160404;
+create table mgame_history.game_new_ddz_content_20160404 ENGINE=MyISAM select * from game_new_ddz_content_20160404;
+create table mgame_history.game_new_motoonline_award_20160404 ENGINE=MyISAM select * from game_new_motoonline_award_20160404;
+create table mgame_history.game_online_count_20160404 ENGINE=MyISAM select * from game_online_count_20160404;
+create table mgame_history.game_user_bomb_20160404 ENGINE=MyISAM select * from game_user_bomb_20160404;
+create table mgame_history.game_user_date_stage_20160404 ENGINE=MyISAM select * from game_user_date_stage_20160404;
+create table mgame_history.game_user_history_20160404 ENGINE=MyISAM select * from game_user_history_20160404;
+create table mgame_history.game_user_stage_20160404 ENGINE=MyISAM select * from game_user_stage_20160404;
+create table mgame_history.game_user_stage_content_20160404 ENGINE=MyISAM select * from game_user_stage_content_20160404;
+create table mgame_history.game_user_vip_stage_20160404 ENGINE=MyISAM select * from game_user_vip_stage_20160404;
+create table mgame_history.game_zjh_xyc_user_award_20160404 ENGINE=MyISAM select * from game_zjh_xyc_user_award_20160404;
+create table mgame_history.game_zjh_xyc_user_xz_20160404 ENGINE=MyISAM select * from game_zjh_xyc_user_xz_20160404;
+create table mgame_history.temp_mm_smspush_20160404 ENGINE=MyISAM select * from temp_mm_smspush_20160404;
+create table mgame_history.user_dingdan_charge_20160404 ENGINE=MyISAM select * from user_dingdan_charge_20160404;
+create table mgame_history.user_dingdan_gold_20160404 ENGINE=MyISAM select * from user_dingdan_gold_20160404;
+create table mgame_history.user_dingdan_imsi_20160404 ENGINE=MyISAM select * from user_dingdan_imsi_20160404;
+create table mgame_history.user_dingdan_mm_20160404 ENGINE=MyISAM select * from user_dingdan_mm_20160404;
+create table mgame_history.xomoney_20160404 ENGINE=MyISAM select * from xomoney_20160404;
+create table mgame_history.game_order_wo_20160404 ENGINE=MyISAM select * from game_order_wo_20160404;
+create table mgame_history.user_dingdan_client_charge_20160404 ENGINE=MyISAM select * from user_dingdan_client_charge_20160404;
+create table mgame_history.user_dingdan_errorcode_20160404 ENGINE=MyISAM select * from user_dingdan_errorcode_20160404;
+
+3.查看histoy库是否备份成功 
+use mgame_history;
+show tables like '%20160404%'; 
+39个
+
+
+
+4.确认成功后删除主库上面的源表
+mysql -h192.168.0.172 -uroot -p81830975 mgame;
+DROP TABLE bbs_user_game_money_log_20160404;
+DROP TABLE bbs_user_gold_game_log_20160404;
+DROP TABLE bbs_user_login_20160404;
+DROP TABLE bbs_user_login_fail_20160404;
+DROP TABLE bbs_user_phone_20160404;
+DROP TABLE bbs_user_sendgamemoney_20160404;
+DROP TABLE bbs_user_sendgold_20160404;
+DROP TABLE bbs_user_sendgold_day_20160404;
+DROP TABLE game_all_online_count_20160404;
+DROP TABLE game_car3d3_award_20160404;
+DROP TABLE game_car3d3_signin_log_20160404;
+DROP TABLE game_down_20160404;
+DROP TABLE game_link_count_20160404;
+DROP TABLE game_link_new3g_20160404;
+DROP TABLE game_menu_click_20160404;
+DROP TABLE game_new_ddz_content_20160404;
+DROP TABLE game_new_motoonline_award_20160404;
+DROP TABLE game_online_count_20160404;
+DROP TABLE game_user_bomb_20160404;
+DROP TABLE game_user_date_stage_20160404;
+DROP TABLE game_user_history_20160404;
+DROP TABLE game_user_stage_20160404;
+DROP TABLE game_user_stage_content_20160404;
+DROP TABLE game_user_vip_stage_20160404;
+DROP TABLE game_zjh_xyc_user_award_20160404;
+DROP TABLE game_zjh_xyc_user_xz_20160404;
+DROP TABLE temp_mm_smspush_20160404;
+DROP TABLE user_dingdan_charge_20160404;
+DROP TABLE user_dingdan_gold_20160404;
+DROP TABLE user_dingdan_imsi_20160404;
+DROP TABLE user_dingdan_mm_20160404;
+DROP TABLE xomoney_20160404;
+DROP TABLE game_order_wo_20160404;
+DROP TABLE user_dingdan_client_charge_20160404;
+DROP TABLE user_dingdan_errorcode_20160404;
+
+5.查看是否删除成功
+show tables like '%20160404%';

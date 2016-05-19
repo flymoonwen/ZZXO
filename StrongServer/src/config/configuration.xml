@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration     
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"     
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">  
+<configuration>  
+	<typeAliases>  
+        <!--给实体类起一个别名 user -->  
+        <typeAlias type="com.pxiaoao.pojo.User" alias="user" />
+    </typeAliases> 
+     <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC" />
+            <dataSource type="com.pxiaoao.database.mysql.pool.C3P0DataSourceFactory">
+               <property name="driverClass" value="com.mysql.jdbc.Driver" />
+			   <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/xiaoao_game_data_1_00?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull"/>
+               <property name="user" value="root"/>
+               <property name="password" value="siyunlong"/>
+			   <property name="minPoolSize" value="5" />
+			   <!--连接池中保留的最大连接数。Default: 15 --> 
+			   <property name="maxPoolSize" value="20"/>  
+			   <!--初始化时获取十个连接，取值应在minPoolSize与maxPoolSize之间。Default: 3 --> 
+			   <property name="initialPoolSize" value="10"/>
+			   <!--最大空闲时间,36000秒内未使用则连接被丢弃。若为0则永不丢弃。Default: 0 --> 
+			   <property name="maxIdleTime" value="25000"/>
+			   <!--当连接池中的连接耗尽的时候c3p0一次同时获取的连接数。Default: 3 -->
+			   <property name="acquireIncrement" value="3"/>
+			   <!--定义在从数据库获取新连接失败后重复尝试的次数。Default: 30 -->
+			   <property name="acquireRetryAttempts" value="30"/>
+			   <!--两次连接中间隔时间，单位毫秒。Default: 1000 -->
+			   <property name="acquireRetryDelay" value="1000"/>
+			   
+			   <property name="maxIdleTimeExcessConnections" value="20"/>
+			   <property name="maxConnectionAge" value="20"/>
+			  
+			   <!--每18000秒检查所有连接池中的空闲连接。Default: 0 -->
+			   <property name="idleConnectionTestPeriod" value="3600"/>
+			   <!--当连接池用完时客户端调用getConnection()后等待获取新连接的时间，超时后将抛出
+				 SQLException,如设为0则无限期等待。单位毫秒。Default: 0 -->
+			   <property name="checkoutTimeout" value="3000"/>  
+			   <property name="testConnectionOnCheckout" value="false" />
+			   <!--如果设为true那么在取得连接的同时将校验连接的有效性。Default: false -->
+			   <property name="testConnectionOnCheckin" value="true"/>
+			   <property name="automaticTestTable" value="c3p0testtable"/>
+			   <property name="connectionTesterClassName" value="com.pxiaoao.database.mysql.pool.C3p0ConnectTest"/> 
+			   <property name="preferredTestQuery"  value="SELECT 1" />
+			   
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>  
+        <mapper resource="config/mybatis/user.xml" />  
+    </mappers>  
+</configuration>   

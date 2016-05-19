@@ -1,0 +1,16 @@
+com.xiaoao
+com.xiaoao.cache
+com.xiaoao.common
+com.xiaoao.db
+com.xiaoao.netty
+com.xiaoao.netty.message
+com.xiaoao.pojo
+com.xiaoao.servlet
+com.xiaoao.user
+com.xiaoao.util
+xiaoao.strong
+xiaoao.strong.common
+xiaoao.strong.netty
+xiaoao.strong.netty.message
+xiaoao.strong.user
+xiaoao.strong.util

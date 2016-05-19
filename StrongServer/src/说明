@@ -1,0 +1,24 @@
+网络层说明
+1.此服务器框架使用netty搭建，请使用者到百度学习netty相关基础，结合此项目查看
+2.网络数据传输采用二进制数据流传输，客户端封装ClientMsg 然后发送到服务器，服务器解析
+ClientMsg,然后回复ServerMsg给客户端，发送和接受都是异步的，具体数据怎么转换转换，
+请查看ServerMsg和ClientMsg相关代码，里面有详细注册说明
+3.客户端的ClientMsg和服务器端的ServerMsg是一个类，只是在客户端服务器叫的名称不一样
+同理 客户端的ServerMsg和服务器端的ClientMsg也是一个类
+
+逻辑层说明
+当服务器收到ClientMsg后会根据msgId 获取处理方法
+一个类型的msg对应的有一个处理方法，实现IMsgProcesser接口，请参考UserLogic
+
+缓存说明
+使用google的loadcache缓存，具体说明在代码里有体现，具体需要去google官网查看
+
+数据库
+建议使用mybatis或者原始的jdbc,不建议使用hibernate复杂的数据库连接工具
+
+代码说明
+运行 GameServer 下的GameServer类   GameClient下的GameCliet类
+大致逻辑为   客户端使用用户名登录  服务器返回登录结果
+服务器对登录在线的所有玩家 每秒说一句话
+
+
